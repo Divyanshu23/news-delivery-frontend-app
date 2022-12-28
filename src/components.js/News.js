@@ -7,6 +7,19 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 
 export class News extends Component {
 
+  static propTypes = {
+    apikey: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    pageSize: PropTypes.number.isRequired,
+    country: PropTypes.string.isRequired
+  }
+
+  static defaultProps = {
+    category: "general",
+    pageSize: 12,
+    country: "in"
+  }
+
   constructor() {
     super()
     this.state = {
@@ -64,12 +77,6 @@ export class News extends Component {
             dataLength={this.state.articles.length}
             next={this.fetchData}
             hasMore={this.state.articles.length !== this.state.totalResults}
-          // loader={<div className='block'><Spinner /></div>}
-          // endMessage={
-          //   <p className='block text-center text-xl mb-2'>
-          //     <b>You have seen it all</b>
-          //   </p>
-          // }
           >
             {
               this.state.articles.map((element) => {

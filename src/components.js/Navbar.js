@@ -4,14 +4,14 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 export class Navbar extends Component {
-  static propTypes = { title: PropTypes.string.isRequired }
-  static defaultProps = { title: "NewsItIs" }
+  static propTypes = { title: PropTypes.string.isRequired, categories: PropTypes.array.isRequired }
+  static defaultProps = { title: "NewsItIs", categories: ["general", "business", "entertainment", "health", "science", "sports", "technology"] }
 
   toggleMenu = () => {
     const element = document.getElementById("mobile-menu")
-    if(element.style.display === "block")
+    if (element.style.display === "block")
       element.style.display = "none"
-    else 
+    else
       element.style.display = "block"
   }
 
